@@ -211,13 +211,25 @@
                         <input type="text" id="main-contact">
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="attendees">Attendees</label>
-                    <input type="text" id="attendees" placeholder="Auto von Description + ggf. manuell adden">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="attendees">Attendees</label>
+                        <input type="text" id="attendees" placeholder="Auto von Description + ggf. manuell adden">
+                    </div>
+                    <div class="form-group">
+                        <label>Parent Activity</label>
+                        <div>TR (auto)</div>
+                    </div>
                 </div>
-                <div class="upload-group">
-                    <label for="upload-file">Upload File:</label>
-                    <input type="file" id="upload-file">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="related">Related</label>
+                        <input type="text" id="related" placeholder="Case/Account">
+                    </div>
+                    <div class="upload-group">
+                        <label for="upload-file">Upload File:</label>
+                        <input type="file" id="upload-file">
+                    </div>
                 </div>
             </div>
 
@@ -301,6 +313,7 @@
                 date: document.getElementById('date').value,
                 attendees: document.getElementById('attendees').value,
                 internalComments: document.getElementById('internal-comments').value,
+                related: document.getElementById('related').value,
                 topicSubject: document.getElementById('topic-subject').value,
                 description: document.getElementById('description').value,
                 taskSubject: document.getElementById('task-subject').value,
