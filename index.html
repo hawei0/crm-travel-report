@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -61,7 +61,7 @@
         .section-title, .subsection-title {
             font-weight: bold;
             font-size: 16px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             padding-bottom: 5px;
             border-bottom: 1px solid #ddd;
         }
@@ -79,7 +79,7 @@
 
         .form-group label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             font-weight: bold;
         }
 
@@ -191,21 +191,40 @@
 
             <!-- Contact Report Header -->
             <div class="subsection">
-                <div class="subsection-title">Contact Report Header</div>
                 <div class="form-row">
                     <div class="form-group">
                         <label for="contact-subject">Subject *</label>
                         <input type="text" id="contact-subject">
                     </div>
                     <div class="form-group">
-                        <label for="attendees">Attendees</label>
-                        <input type="text" id="attendees">
+                        <label for="date">Date</label>
+                        <input type="date" id="date">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="main-account">Main Account *</label>
+                        <input type="text" id="main-account" value="Auto">
+                    </div>
+                    <div class="form-group">
+                        <label for="main-contact">Main Contact *</label>
+                        <input type="text" id="main-contact">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="internal-comments">Internal Comments</label>
-                    <textarea id="internal-comments"></textarea>
+                    <label for="attendees">Attendees</label>
+                    <input type="text" id="attendees" placeholder="Auto von Description + ggf. manuell adden">
                 </div>
+                <div class="upload-group">
+                    <label for="upload-file">Upload File:</label>
+                    <input type="file" id="upload-file">
+                </div>
+            </div>
+
+            <!-- Internal Comments -->
+            <div class="form-group">
+                <label for="internal-comments">Internal Comments:</label>
+                <textarea id="internal-comments"></textarea>
             </div>
 
             <!-- Topic Subsection -->
@@ -279,10 +298,10 @@
                 mainAccount: document.getElementById('main-account').value,
                 regarding: document.getElementById('regarding').value,
                 contactSubject: document.getElementById('contact-subject').value,
+                date: document.getElementById('date').value,
                 attendees: document.getElementById('attendees').value,
                 internalComments: document.getElementById('internal-comments').value,
                 topicSubject: document.getElementById('topic-subject').value,
-                mainContact: document.getElementById('main-contact').value,
                 description: document.getElementById('description').value,
                 taskSubject: document.getElementById('task-subject').value,
                 assign: document.getElementById('assign').value,
