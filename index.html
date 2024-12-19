@@ -38,7 +38,27 @@
             background-color: #f9f9f9;
         }
 
-        .section-title {
+        .general-section {
+            background-color: #e0e0e0;
+            padding: 20px;
+        }
+
+        .contact-report {
+            background-color: #f2f2f2;
+            padding: 20px;
+            border: 2px solid #dcdcdc;
+        }
+
+        .subsection {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title, .subsection-title {
             font-weight: bold;
             font-size: 16px;
             margin-bottom: 10px;
@@ -67,23 +87,37 @@
         .form-group textarea,
         .form-group select {
             width: 100%;
-            padding: 8px;
+            padding: 6px;
             border: 1px solid #ccc;
             border-radius: 4px;
             font-size: 14px;
         }
 
         .form-group textarea {
-            height: 100px;
+            height: 80px;
         }
 
         .upload-group {
-            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .upload-group input[type="file"] {
+            display: inline-block;
+        }
+
+        .follow-up {
+            margin-top: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background-color: #fff;
+        }
+
+        .follow-up strong {
             display: block;
-            margin-top: 5px;
+            margin-bottom: 5px;
         }
 
         .related-section {
@@ -99,21 +133,22 @@
             background-color: #fff;
         }
 
-        .task-section textarea {
-            height: 60px;
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
         }
 
-        .follow-up {
-            margin-top: 15px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            background-color: #fff;
+        .button-container button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
         }
 
-        .follow-up strong {
-            display: block;
-            margin-bottom: 5px;
+        .button-container button:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
@@ -122,7 +157,7 @@
         <h2>Travel Report</h2>
 
         <!-- General Section -->
-        <div class="section">
+        <div class="section general-section">
             <div class="section-title">General</div>
             <div class="form-row">
                 <div class="form-group">
@@ -147,88 +182,76 @@
         </div>
 
         <!-- Contact Report Section -->
-        <div class="section">
+        <div class="section contact-report">
             <div class="section-title">Contact Report</div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="contact-subject">Subject *</label>
-                    <input type="text" id="contact-subject">
+
+            <!-- Topic Subsection -->
+            <div class="subsection">
+                <div class="subsection-title">Topic</div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="topic-subject">Subject *</label>
+                        <input type="text" id="topic-subject">
+                    </div>
+                    <div class="form-group">
+                        <label for="main-contact">Main Contact</label>
+                        <input type="text" id="main-contact" value="Default von Oben">
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label for="date">Date</label>
-                    <input type="date" id="date">
+                    <label for="description">Description</label>
+                    <textarea id="description"></textarea>
+                </div>
+                <div class="upload-group">
+                    <label for="topic-upload">Upload File:</label>
+                    <input type="file" id="topic-upload">
+                </div>
+                <div class="follow-up">
+                    <label for="follow-up">Create Task:</label>
+                    <select id="follow-up">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
                 </div>
             </div>
-            <div class="upload-group">
-                <label for="upload">Upload File:</label>
-                <input type="file" id="upload">
-            </div>
-            <div class="form-group">
-                <label for="internal-comments">Internal Comments:</label>
-                <textarea id="internal-comments"></textarea>
+
+            <!-- Task Subsection -->
+            <div class="subsection">
+                <div class="subsection-title">Task</div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="task-subject">Subject *</label>
+                        <input type="text" id="task-subject" value="Default Subject von Topic">
+                    </div>
+                    <div class="form-group">
+                        <label for="assign">Assign To</label>
+                        <input type="text" id="assign">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="task-description">Description</label>
+                        <textarea id="task-description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="due-date">Due Date</label>
+                        <input type="date" id="due-date">
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Topic Section -->
-        <div class="section">
-            <div class="section-title">Topic</div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="topic-subject">Subject *</label>
-                    <input type="text" id="topic-subject">
-                </div>
-                <div class="form-group">
-                    <label for="main-contact">Main Contact</label>
-                    <input type="text" id="main-contact" value="Default von Oben">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="description">Description</label>
-                <textarea id="description"></textarea>
-            </div>
-
-            <div class="related-section">
-                <div class="box">
-                    <strong>Related</strong>
-                    <p>Equipment, Opportunities, etc.</p>
-                </div>
-                <div class="box">
-                    <strong>Other</strong>
-                    <p>Cases/Accounts</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Follow-Up Section -->
-        <div class="follow-up">
-            <strong>Follow Up</strong>
-            Create Task: Yes/No
-        </div>
-
-        <!-- Task Section -->
-        <div class="section">
-            <div class="section-title">Task</div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="task-subject">Subject *</label>
-                    <input type="text" id="task-subject" value="Default Subject von Topic">
-                </div>
-                <div class="form-group">
-                    <label for="assign">Assign To</label>
-                    <input type="text" id="assign">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="task-description">Description</label>
-                    <textarea id="task-description"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="due-date">Due Date</label>
-                    <input type="date" id="due-date">
-                </div>
-            </div>
+        <!-- Submit Button -->
+        <div class="button-container">
+            <button onclick="submitForm()">Speichern</button>
         </div>
     </div>
+
+    <script>
+        function submitForm() {
+            alert('Form wird gespeichert und eine E-Mail wird gesendet!');
+            // Hier könnte ein E-Mail-Service oder Backend-Aufruf integriert werden
+        }
+    </script>
 </body>
 </html>
