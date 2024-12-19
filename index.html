@@ -99,35 +99,47 @@
 
         .upload-group {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 10px;
+            margin-top: 10px;
         }
 
         .upload-group input[type="file"] {
             display: inline-block;
         }
 
-        .follow-up {
-            margin-top: 15px;
+        .right-boxes {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            flex: 1;
+        }
+
+        .follow-up, .related-section {
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 6px;
             background-color: #fff;
         }
 
-        .follow-up strong {
+        .follow-up strong, .related-section strong {
             display: block;
             margin-bottom: 5px;
+            font-size: 14px;
         }
 
-        .related-section {
+        .field-row {
             display: flex;
-            flex-direction: column;
+            align-items: center;
             gap: 10px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            background-color: #f9f9f9;
-            padding: 10px;
+        }
+
+        .field-row label {
+            margin: 0;
+        }
+
+        .field-row div {
+            font-weight: bold;
         }
 
         .button-container {
@@ -147,29 +159,15 @@
         .button-container button:hover {
             background-color: #45a049;
         }
-
-        .field-row {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .field-row label {
-            margin: 0;
-        }
-
-        .field-row div {
-            font-weight: bold;
-        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Travel Report</h2>
+        <h2>TRAVEL REPORT</h2>
 
         <!-- General Section -->
         <div class="section general-section">
-            <div class="section-title">General</div>
+            <div class="section-title">GENERAL</div>
             <div class="form-row">
                 <div class="form-group">
                     <label for="subject">Subject *</label>
@@ -180,7 +178,7 @@
                     <input type="date" id="period-start">
                 </div>
                 <div class="form-group">
-                    <label for="period-end">Period (End)</label>
+                    <!--<label for="period-end">Period (End)</label>-->
                     <input type="date" id="period-end">
                 </div>
             </div>
@@ -198,7 +196,7 @@
 
         <!-- Contact Report Section -->
         <div class="section contact-report">
-            <div class="section-title">Contact Report</div>
+            <div class="section-title">CONTACT REPORT</div>
 
             <!-- Contact Report Header -->
             <div class="subsection">
@@ -247,7 +245,7 @@
 
         <!-- Topic Section -->
         <div class="section topic-section">
-            <div class="section-title">Topic</div>
+            <div class="section-title">TOPIC</div>
             <div class="form-row">
                 <div class="form-group">
                     <label for="topic-subject">Subject *</label>
@@ -277,28 +275,28 @@
                     <label for="topic-upload">Upload File:</label>
                     <input type="file" id="topic-upload">
                 </div>
-            </div>
-            <div class="form-row">
-                <div class="related-section">
-                    <strong>RELATED</strong>
-                    <div>Equipment:</div>
-                    <div>Opportunity:</div>
-                    <div>Other: <input type="text" placeholder="Case/Account"></div>
-                </div>
-                <div class="follow-up">
-                    <strong>FOLLOW UP</strong>
-                    <label for="follow-up">Create Task:</label>
-                    <select id="follow-up">
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                    </select>
+                <div class="right-boxes">
+                    <div class="related-section">
+                        <strong>RELATED</strong>
+                        <div>Equipment:</div>
+                        <div>Opportunity:</div>
+                        <div>Other: <input type="text" placeholder="Case/Account"></div>
+                    </div>
+                    <div class="follow-up">
+                        <strong>FOLLOW UP</strong>
+                        <label for="follow-up">Create Task:</label>
+                        <select id="follow-up">
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Task Section -->
         <div class="section task-section">
-            <div class="section-title">Task</div>
+            <div class="section-title">TASK</div>
             <div class="form-row">
                 <div class="form-group">
                     <label for="task-subject">Subject *</label>
