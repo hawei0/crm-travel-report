@@ -108,6 +108,13 @@
             display: inline-block;
         }
 
+        .upper-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
         .right-boxes {
             display: flex;
             flex-direction: column;
@@ -120,6 +127,7 @@
             border: 1px solid #ddd;
             border-radius: 6px;
             background-color: #fff;
+            width: 48%;
         }
 
         .follow-up strong, .related-section strong {
@@ -163,11 +171,11 @@
 </head>
 <body>
     <div class="container">
-        <h2>TRAVEL REPORT</h2>
+        <h2>Travel Report</h2>
 
         <!-- General Section -->
         <div class="section general-section">
-            <div class="section-title">GENERAL</div>
+            <div class="section-title">General</div>
             <div class="form-row">
                 <div class="form-group">
                     <label for="subject">Subject *</label>
@@ -178,7 +186,7 @@
                     <input type="date" id="period-start">
                 </div>
                 <div class="form-group">
-                    <!--<label for="period-end">Period (End)</label>-->
+                    <label for="period-end">Period (End)</label>
                     <input type="date" id="period-end">
                 </div>
             </div>
@@ -196,7 +204,7 @@
 
         <!-- Contact Report Section -->
         <div class="section contact-report">
-            <div class="section-title">CONTACT REPORT</div>
+            <div class="section-title">Contact Report</div>
 
             <!-- Contact Report Header -->
             <div class="subsection">
@@ -245,7 +253,7 @@
 
         <!-- Topic Section -->
         <div class="section topic-section">
-            <div class="section-title">TOPIC</div>
+            <div class="section-title">Topic</div>
             <div class="form-row">
                 <div class="form-group">
                     <label for="topic-subject">Subject *</label>
@@ -266,11 +274,7 @@
                     <input type="text" id="attendees">
                 </div>
             </div>
-            <div class="form-group">
-                <label for="description">Description</label>
-                <textarea id="description"></textarea>
-            </div>
-            <div class="form-row">
+            <div class="upper-row">
                 <div class="upload-group">
                     <label for="topic-upload">Upload File:</label>
                     <input type="file" id="topic-upload">
@@ -292,11 +296,15 @@
                     </div>
                 </div>
             </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description"></textarea>
+            </div>
         </div>
 
         <!-- Task Section -->
         <div class="section task-section">
-            <div class="section-title">TASK</div>
+            <div class="section-title">Task</div>
             <div class="form-row">
                 <div class="form-group">
                     <label for="task-subject">Subject *</label>
