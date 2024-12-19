@@ -43,7 +43,7 @@
             padding: 20px;
         }
 
-        .contact-report {
+        .contact-report, .topic-section, .task-section {
             background-color: #f2f2f2;
             padding: 20px;
             border: 2px solid #dcdcdc;
@@ -130,14 +130,6 @@
             padding: 10px;
         }
 
-        .related-section .box {
-            flex: 1;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            background-color: #fff;
-        }
-
         .button-container {
             text-align: center;
             margin-top: 20px;
@@ -154,6 +146,20 @@
 
         .button-container button:hover {
             background-color: #45a049;
+        }
+
+        .field-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .field-row label {
+            margin: 0;
+        }
+
+        .field-row div {
+            font-weight: bold;
         }
     </style>
 </head>
@@ -221,20 +227,14 @@
                         <label for="attendees">Attendees</label>
                         <input type="text" id="attendees" placeholder="Auto von Description + ggf. manuell adden">
                     </div>
-                    <div class="form-group">
-                        <label>Parent Activity</label>
+                    <div class="field-row">
+                        <label>Parent Activity:</label>
                         <div>TR (auto)</div>
                     </div>
                 </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="related">Related</label>
-                        <input type="text" id="related" placeholder="Case/Account">
-                    </div>
-                    <div class="upload-group">
-                        <label for="upload-file">Upload File:</label>
-                        <input type="file" id="upload-file">
-                    </div>
+                <div class="upload-group">
+                    <label for="upload-file">Upload File:</label>
+                    <input type="file" id="upload-file">
                 </div>
             </div>
 
@@ -243,29 +243,50 @@
                 <label for="internal-comments">Internal Comments:</label>
                 <textarea id="internal-comments"></textarea>
             </div>
+        </div>
 
-            <!-- Topic Subsection -->
-            <div class="subsection">
-                <div class="subsection-title">Topic</div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="topic-subject">Subject *</label>
-                        <input type="text" id="topic-subject">
-                    </div>
-                    <div class="form-group">
-                        <label for="main-contact">Main Contact</label>
-                        <input type="text" id="main-contact" value="Default von Oben">
-                    </div>
+        <!-- Topic Section -->
+        <div class="section topic-section">
+            <div class="section-title">Topic</div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="topic-subject">Subject *</label>
+                    <input type="text" id="topic-subject">
+                </div>
+                <div class="field-row">
+                    <label>Parent Activity:</label>
+                    <div>CR (auto)</div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="main-contact">Main Contact</label>
+                    <input type="text" id="main-contact" value="Default von Oben">
                 </div>
                 <div class="form-group">
-                    <label for="description">Description</label>
-                    <textarea id="description"></textarea>
+                    <label for="attendees">Attendees</label>
+                    <input type="text" id="attendees">
                 </div>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description"></textarea>
+            </div>
+            <div class="form-row">
                 <div class="upload-group">
                     <label for="topic-upload">Upload File:</label>
                     <input type="file" id="topic-upload">
                 </div>
+            </div>
+            <div class="form-row">
+                <div class="related-section">
+                    <strong>RELATED</strong>
+                    <div>Equipment:</div>
+                    <div>Opportunity:</div>
+                    <div>Other: <input type="text" placeholder="Case/Account"></div>
+                </div>
                 <div class="follow-up">
+                    <strong>FOLLOW UP</strong>
                     <label for="follow-up">Create Task:</label>
                     <select id="follow-up">
                         <option value="yes">Yes</option>
@@ -273,30 +294,34 @@
                     </select>
                 </div>
             </div>
+        </div>
 
-            <!-- Task Subsection -->
-            <div class="subsection">
-                <div class="subsection-title">Task</div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="task-subject">Subject *</label>
-                        <input type="text" id="task-subject" value="Default Subject von Topic">
-                    </div>
-                    <div class="form-group">
-                        <label for="assign">Assign To</label>
-                        <input type="text" id="assign">
-                    </div>
+        <!-- Task Section -->
+        <div class="section task-section">
+            <div class="section-title">Task</div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="task-subject">Subject *</label>
+                    <input type="text" id="task-subject" value="Default Subject von Topic">
                 </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="task-description">Description</label>
-                        <textarea id="task-description"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="due-date">Due Date</label>
-                        <input type="date" id="due-date">
-                    </div>
+                <div class="field-row">
+                    <label>Parent Activity:</label>
+                    <div>Topic (auto)</div>
                 </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="assign">Assign To</label>
+                    <input type="text" id="assign">
+                </div>
+                <div class="form-group">
+                    <label for="due-date">Due Date</label>
+                    <input type="date" id="due-date">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="task-description">Description</label>
+                <textarea id="task-description"></textarea>
             </div>
         </div>
 
@@ -318,7 +343,6 @@
                 date: document.getElementById('date').value,
                 attendees: document.getElementById('attendees').value,
                 internalComments: document.getElementById('internal-comments').value,
-                related: document.getElementById('related').value,
                 topicSubject: document.getElementById('topic-subject').value,
                 description: document.getElementById('description').value,
                 taskSubject: document.getElementById('task-subject').value,
