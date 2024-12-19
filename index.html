@@ -1,211 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, inital-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel Report</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f9fa;
+            background-color: #f7f7f7;
+            color: #333;
         }
 
-        .container{
-            width: 80%;
+        .container {
+            width: 90%;
+            max-width: 1200px;
             margin: 20px auto;
-            border: 1px solid #ccc;
             background-color: #fff;
-            padding: 15px;
-            box-shadow: 0 0 5px rgba(0,0,0,0.2);
-
-        }
-
-        h2{
-            text-align: center;
-            background-color: #e0e0e0;
-            padding: 10px;
-            margin: 15px-15px 10px-15px;
-        }
-
-        .section{
             border: 1px solid #ccc;
-            margin-bottom: 10px;
-            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background-color: #f9f9f9;
         }
 
         .section-title {
             font-weight: bold;
+            font-size: 16px;
             margin-bottom: 10px;
-            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
         }
 
         .form-row {
-            display:flex;
+            display: flex;
             flex-wrap: wrap;
-            margin-bottom: 10px;
+            gap: 15px;
         }
 
         .form-group {
             flex: 1;
-            margin-right: 10px;
+            min-width: 200px;
         }
 
         .form-group label {
             display: block;
-            font-size: 14px;
             margin-bottom: 5px;
+            font-weight: bold;
         }
 
-        .form-group input, .form-group textarea {
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
             width: 100%;
             padding: 8px;
             border: 1px solid #ccc;
             border-radius: 4px;
+            font-size: 14px;
         }
 
-        .upload-group input [type="file"] {
+        .form-group textarea {
+            height: 100px;
+        }
+
+        .upload-group {
+            margin-top: 15px;
+        }
+
+        .upload-group input[type="file"] {
+            display: block;
             margin-top: 5px;
         }
 
-        .follow-up, .related {
-            border: 1px solid #ccc;
+        .related-section {
+            display: flex;
+            gap: 20px;
+        }
+
+        .related-section .box {
+            flex: 1;
             padding: 10px;
-            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background-color: #fff;
         }
 
         .task-section textarea {
             height: 60px;
         }
 
+        .follow-up {
+            margin-top: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background-color: #fff;
+        }
+
+        .follow-up strong {
+            display: block;
+            margin-bottom: 5px;
+        }
     </style>
-
-
 </head>
 <body>
-
     <div class="container">
-        <h2>TRAVEL REPORT</h2>
+        <h2>Travel Report</h2>
 
+        <!-- General Section -->
         <div class="section">
-
-            <div class="section-title">GENERAL</div>
-            </div class="form-row">
-            <div class="form-group">
-                <label>Subject *</label>
-                <input type="text" placeholder="Enter Subject">
-            </div>
-        
-            <div class="form-group">
-                <label>Period</label>
-                <input type="text" placeholder="Enter Period">
-            </div>
-        </div>
-        
-        <div class="form-row">
-            <div class="form-group">
-                <label>Main Account *</label>
-                <input type="text" placeholder="Link Account">
-            </div>
-
-            <div class="form-group">
-                <label>Regarding</label>
-                <input type="text">
-            </div>
-        </div>
-
-
-        <div class="section">
-            <div class="section-title">CONTACT REPORT</div>
+            <div class="section-title">General</div>
             <div class="form-row">
                 <div class="form-group">
-                    <label>Subject *</label>
-                    <input type="text">
+                    <label for="subject">Subject *</label>
+                    <input type="text" id="subject" placeholder="Enter Subject">
                 </div>
                 <div class="form-group">
-                    <label>Date</label>
-                    <input type="date">
+                    <label for="period">Period</label>
+                    <input type="text" id="period" placeholder="Enter Period">
                 </div>
             </div>
-
-
-        </div>
-    
-        <div class="upload-group">
-            <label>Upload File:</label>
-            <input type="file">
-        </div>
-        <div class="form-group">
-            <label>Internal Comments:</label>
-            <textarea></textarea>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section-title">TOPIC</div>
-        <div class="form-row">
-            <div class="form-group">
-                <label>Subject *</label>
-                <input type="text">
-            </div>
-            <div class="form-group">
-                <label>Main Contact</label>
-                <input type="text" value="Default von Oben">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="main-account">Main Account *</label>
+                    <input type="text" id="main-account">
+                </div>
+                <div class="form-group">
+                    <label for="regarding">Regarding</label>
+                    <input type="text" id="regarding">
+                </div>
             </div>
         </div>
-        <div class="form-group">
-            <label>Description</label>
-            <textarea></textarea>
-        </div>
-    </div>
 
-    <div class="follow-up">
-        <strong>FOLLOW UP</strong><br>
-        Create Task: Yes/No
-    </div>
-
-    <div class="section task-section">
-        <div class="section-title">TASK</div>
-        <div class="form-row">
-            <div class="form-group">
-                <label>Subject *</label>
-                <input type="text" value="Default Subject von Topic">
+        <!-- Contact Report Section -->
+        <div class="section">
+            <div class="section-title">Contact Report</div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="contact-subject">Subject *</label>
+                    <input type="text" id="contact-subject">
+                </div>
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="date" id="date">
+                </div>
+            </div>
+            <div class="upload-group">
+                <label for="upload">Upload File:</label>
+                <input type="file" id="upload">
             </div>
             <div class="form-group">
-                <label>Assign to</label>
-                <input type="text">
+                <label for="internal-comments">Internal Comments:</label>
+                <textarea id="internal-comments"></textarea>
             </div>
         </div>
-        <div class="form-row">
-            <div class="form-group">
-                <label>Description</label>
-                <textarea></textarea>
+
+        <!-- Topic Section -->
+        <div class="section">
+            <div class="section-title">Topic</div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="topic-subject">Subject *</label>
+                    <input type="text" id="topic-subject">
+                </div>
+                <div class="form-group">
+                    <label for="main-contact">Main Contact</label>
+                    <input type="text" id="main-contact" value="Default von Oben">
+                </div>
             </div>
             <div class="form-group">
-                <label>Due Date</label>
-                <input type="date">
+                <label for="description">Description</label>
+                <textarea id="description"></textarea>
+            </div>
+
+            <div class="related-section">
+                <div class="box">
+                    <strong>Related</strong>
+                    <p>Equipment, Opportunities, etc.</p>
+                </div>
+                <div class="box">
+                    <strong>Other</strong>
+                    <p>Cases/Accounts</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Follow-Up Section -->
+        <div class="follow-up">
+            <strong>Follow Up</strong>
+            Create Task: Yes/No
+        </div>
+
+        <!-- Task Section -->
+        <div class="section">
+            <div class="section-title">Task</div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="task-subject">Subject *</label>
+                    <input type="text" id="task-subject" value="Default Subject von Topic">
+                </div>
+                <div class="form-group">
+                    <label for="assign">Assign To</label>
+                    <input type="text" id="assign">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="task-description">Description</label>
+                    <textarea id="task-description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="due-date">Due Date</label>
+                    <input type="date" id="due-date">
+                </div>
             </div>
         </div>
     </div>
 </body>
-</html>
-
-    
-
-
-
-
-
-
-
-</body>
-
-
-
-
-
-
 </html>
